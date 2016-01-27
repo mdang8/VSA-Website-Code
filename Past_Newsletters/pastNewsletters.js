@@ -95,6 +95,7 @@ function displayNewsletter() {
             "https://www.dropbox.com/s/u6mma90n3iap1xg/Winter%20Newsletter%20%232.jpg?raw=1"
         ];
 
+    var time = <?php echo json_encode(time()); ?>;
     var newsletterEdition;
     var newsletterIndex;
     var newsletterImage;
