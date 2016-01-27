@@ -75,9 +75,7 @@ function displayNewsletter() {
             "https://goo.gl/OtmB7H", "https://goo.gl/9mePmL", "https://goo.gl/rQJ245", "https://goo.gl/K69emt", "https://goo.gl/PSxGvH", "https://goo.gl/ONXVKW",
             "http://www.vsa.neu.edu/wp-content/uploads/2015/04/vsaNewsletter_5-3-15.jpg"];
 
-    var newsletterLinks_2015_2016 = 
-        [
-            "https://www.dropbox.com/s/8w6qecg0fhlyfin/Fall%20Newsletter%20%231.jpg?raw=1",
+    var newsletterLinks_2015_2016 = [ "https://www.dropbox.com/s/8w6qecg0fhlyfin/Fall%20Newsletter%20%231.jpg?raw=1",
             "https://www.dropbox.com/s/vumskgw9ijddxlw/Fall%20Newsletter%20%232%20FINAL.jpg?raw=1",
             "https://www.dropbox.com/s/z64onf30rva2pe3/Fall%20Newsletter%20%233%20FINAL.jpg?raw=1",
             "https://www.dropbox.com/s/j6km67ibdtcocnj/Fall%20Newsletter%20%234%20final.jpg?raw=1",
@@ -92,8 +90,7 @@ function displayNewsletter() {
             "https://www.dropbox.com/s/4bkdc4cm750t9bt/Fall%20Newsletter%20%2313%20FINAL.jpg?raw=1",
             "https://www.dropbox.com/s/zbx27oa422y2se4/Freshman%20Newsletter%20final.jpg?raw=1",
             "https://www.dropbox.com/s/vpj6c9h43hygpqz/Winter%20Newsletter%20%231.jpg?raw=1",
-            "https://www.dropbox.com/s/u6mma90n3iap1xg/Winter%20Newsletter%20%232.jpg?raw=1"
-        ];
+            "https://www.dropbox.com/s/u6mma90n3iap1xg/Winter%20Newsletter%20%232.jpg?raw=1"];
 
     var time = new Date().getTime();
     var newsletterEdition;
@@ -109,8 +106,7 @@ function displayNewsletter() {
         newsletterImage.setAttribute('height', "2000");
         newsletterImage.setAttribute('display', "block");
         document.getElementById('newsletterDiv').appendChild(newsletterImage);
-    }
-    else if (year == "2014-2015") {
+    } else if (year == "2014-2015") {
         newsletterEdition = document.getElementById('2014-2015_select').value;  // String - edition of newsletter selected       
         newsletterIndex = newsletterNames_2014_2015.indexOf(newsletterEdition);  // int - array index of newsletter edition
         newsletterImage = document.createElement('img');  // creates HTML image element and assigns to newsletterImage variable
@@ -118,8 +114,7 @@ function displayNewsletter() {
         newsletterImage.src = newsletterLinks_2014_2015[newsletterIndex] + "?" + time;  // sets the source of image
         newsletterImage.setAttribute('alt', newsletterEdition);  // sets the 'alt' attribute of the image
         document.getElementById('newsletterDiv').appendChild(newsletterImage);
-    }
-    else if (year == "2015-2016") {
+    } else if (year == "2015-2016") {
         newsletterEdition = document.getElementById('2015-2016_select').value;  // String - edition of newsletter selected       
         newsletterIndex = newsletterNames_2015_2016.indexOf(newsletterEdition);  // int - array index of newsletter edition
         newsletterImage = document.createElement('img');  // creates HTML image element and assigns to newsletterImage variable
@@ -127,8 +122,7 @@ function displayNewsletter() {
         newsletterImage.src = newsletterLinks_2015_2016[newsletterIndex] + "?" + time;  // sets the source of image
         newsletterImage.setAttribute('alt', newsletterEdition);  // sets the 'alt' attribute of the image
         document.getElementById('newsletterDiv').appendChild(newsletterImage);
-    }
-    else {
+    } else {
         throw new Error("displayNewsletter(): Invalid year selected. How? I don't know.");  // yeah idk how this would happen, but you never know
     }
 }
