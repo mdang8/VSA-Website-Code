@@ -119,7 +119,7 @@ function displayNewsletter() {
         newsletterIndex = newsletterNames_2015_2016.indexOf(newsletterEdition);  // int - array index of newsletter edition
         newsletterImage = document.createElement('img');  // creates HTML image element and assigns to newsletterImage variable
         newsletterImage.setAttribute('id', "newsletter");  // sets the id of the image element
-        newsletterImage.src = newsletterLinks_2015_2016[newsletterIndex] + "?" + time;  // sets the source of image
+        newsletterImage.src = newsletterLinks_2015_2016[newsletterIndex] + "&" + time;  // sets the source of image
         newsletterImage.setAttribute('alt', newsletterEdition);  // sets the 'alt' attribute of the image
         document.getElementById('newsletterDiv').appendChild(newsletterImage);
     } else {
