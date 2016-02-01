@@ -66,7 +66,7 @@ function displayNewsletter() {
             "http://goo.gl/3VVIv5", "http://goo.gl/fLQ5aW", "http://goo.gl/p5xTjX", "http://goo.gl/bLpjVM", "http://goo.gl/7E0t2U", "http://goo.gl/4gCmKV",
             "http://goo.gl/HzkEVA", "http://goo.gl/5d3l4Z", "http://goo.gl/GaThKp", "http://goo.gl/HPTa7y", "http://goo.gl/sRIUCX", "http://goo.gl/eYv8Mn",
             "http://goo.gl/j9oVtE", "http://goo.gl/CRvUdD", "http://goo.gl/3c6pPi", "http://goo.gl/JuPHv4", "http://goo.gl/15x8d8", "http://goo.gl/LILsct",
-            "http://goo.gl/aWTSc9", "http://goo.gl/QAJsdb", "http://goo.gl/1yjNEK", "http://goo.gl/zg23l4",];
+            "http://goo.gl/aWTSc9", "http://goo.gl/QAJsdb", "http://goo.gl/1yjNEK", "http://goo.gl/zg23l4", "http://eepurl.com/TLfUH"];
 
     var newsletterLinks_2014_2015 = ["https://goo.gl/7x9Sm5", "https://goo.gl/ifspwV", "https://goo.gl/JRXHkx", "https://goo.gl/wW4x0j", "https://goo.gl/jQkoqs",
             "https://goo.gl/HVbI9u", "https://goo.gl/kFKCDk", "https://goo.gl/yc8Y41", "https://goo.gl/BkG4yZ", "https://goo.gl/iEeoS7", "https://goo.gl/scgmcH",
