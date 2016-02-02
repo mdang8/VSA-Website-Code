@@ -97,8 +97,11 @@ function displayNewsletter() {
     var newsletterIndex;
     var newsletterImage;
     if (year == "2013-2014") {
-        newsletterEdition = document.getElementById('2013-2014_select').value;  // String - edition of newsletter selected
-        newsletterIndex = newsletterNames_2013_2014.indexOf(newsletterEdition);  // int - array index of newsletter edition
+        newsletterEdition = document.getElementById('2013-2014_select').value;  // String - edition of newsletter selected       
+        if (newsletterEdition == "Newsletter #27 - 05/02/2014 (Thao's Debut Edition!)")
+            newsletterIndex = 26;
+        else
+            newsletterIndex = newsletterNames_2013_2014.indexOf(newsletterEdition);  // int - array index of newsletter edition
         newsletterImage = document.createElement('iframe');  // creates HTML iframe element and assigns to newsletterImage variable
         newsletterImage.setAttribute('id', "newsletter");  // sets the id of the iframe element
         newsletterImage.src = newsletterLinks_2013_2014[newsletterIndex];  // sets the source of image
