@@ -75,22 +75,53 @@ function displayNewsletter() {
             "https://goo.gl/OtmB7H", "https://goo.gl/9mePmL", "https://goo.gl/rQJ245", "https://goo.gl/K69emt", "https://goo.gl/PSxGvH", "https://goo.gl/ONXVKW",
             "http://www.vsa.neu.edu/wp-content/uploads/2015/04/vsaNewsletter_5-3-15.jpg"];
 
-    var newsletterLinks_2015_2016 = [ "https://www.dropbox.com/s/8w6qecg0fhlyfin/Fall%20Newsletter%20%231.jpg?raw=1",
-            "https://www.dropbox.com/s/vumskgw9ijddxlw/Fall%20Newsletter%20%232%20FINAL.jpg?raw=1",
-            "https://www.dropbox.com/s/z64onf30rva2pe3/Fall%20Newsletter%20%233%20FINAL.jpg?raw=1",
-            "https://www.dropbox.com/s/j6km67ibdtcocnj/Fall%20Newsletter%20%234%20final.jpg?raw=1",
-            "https://www.dropbox.com/s/o029i27cdmhrpue/Fall%20Newsletter%20%235%20finall.jpg?raw=1",
-            "https://www.dropbox.com/s/nu1b6gq9bdb0ah6/Fall%20Newsletter%20%236%20Final.jpg?raw=1",
-            "https://www.dropbox.com/s/4sfmfnvhkn5f752/Fall%20Newsletter%20%237%20FINAL.jpg?raw=1",
-            "https://www.dropbox.com/s/igaxitfhha56rga/Fall%20Newsletter%20%238%20final.jpg?raw=1",
-            "https://www.dropbox.com/s/f67a22ncdng7uh3/Fall%20Newsletter%20%239%20final.jpg?raw=1",
-            "https://www.dropbox.com/s/9jyltuk1hh0utxu/Fall%20Newsletter%20%2310%20FINAL.jpg?raw=1",
-            "https://www.dropbox.com/s/kbhdaidne1ycuf7/Fall%20Newsletter%20%2311%20FINAL.jpg?raw=1",
-            "https://www.dropbox.com/s/qch7dppmh49ts7k/Fall%20Newsletter%20%2312%20FINAL.jpg?raw=1",
-            "https://www.dropbox.com/s/4bkdc4cm750t9bt/Fall%20Newsletter%20%2313%20FINAL.jpg?raw=1",
-            "https://www.dropbox.com/s/zbx27oa422y2se4/Freshman%20Newsletter%20final.jpg?raw=1",
-            "https://www.dropbox.com/s/vpj6c9h43hygpqz/Winter%20Newsletter%20%231.jpg?raw=1",
-            "https://www.dropbox.com/s/u6mma90n3iap1xg/Winter%20Newsletter%20%232.jpg?raw=1"];
+    var newsletterLinks_2015_2016 = [
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXTnFuY2JhTkllMmM",  // Freshmen Newsletter
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXcjg4NE5iOWJuNE0",  // 09/08/15
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXeTVITWdEejA4LVE",  // 09/16/15
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXc1dPX0VkSmhkdE0",  // 09/23/15
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXZzE0UFlxN2Q0Tm8",  // 09/30/15
+            "https://drive.google.com/uc?export=view&id=",
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXS09sbE9TWEFKWjQ",  // 10/14/15
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXTlZHVmJBSkQ4WU0",  // 10/21/15
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXTVNyRmpUY3ZVVzQ",  // 10/28/15
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXXzctbzhUSjVuX2M",  // 11/05/15
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXTjE4OEV0QUdnUGM",  // 11/12/15
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXa3ByaFpqNVlXSjA",  // 11/18/15
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXN245bkV4MVQ0RDg",  // 11/26/15
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXSE44Tmx4aEFPVm8",  // 12/05/15
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXZGhFVGRJUjN1VE0",  // 12/10/15
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXYTRndFJuOXFwTVk",  // 01/13/16
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXa1p3bFRyNkYyX2M",  // 01/19/16
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXdUFDNTFocVFkRlk",  // 01/26/16
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXbFFEeUhqX2RQQU0",  // 02/03/16
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXbmY3NEhPYjZFc3c",  // 02/10/16
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXazE3b0NEZTQySFk",  // 02/17/16
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXbEJzX0pLT2d1OFk",  // 02/24/16
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXZHFlMnNiaDBpenM",  // 03/02/16
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXelMzZFhXRmh6V0k",  // 03/16/16
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXV3FBcnVlNXY2Y28",  // 03/22/16
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXZXhUR1RXNEx3YXM",  // 04/07/16
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXcFlCLTRfWW03VzQ",  // 04/15/16
+            "https://drive.google.com/uc?export=view&id=0B4ww1WNUHcBXeE1JdXNrZnJ5bXc",  // 04/21/16
+    ];
+
+    // var newsletterLinks_2015_2016 = [ "https://www.dropbox.com/s/8w6qecg0fhlyfin/Fall%20Newsletter%20%231.jpg?raw=1",
+    //         "https://www.dropbox.com/s/vumskgw9ijddxlw/Fall%20Newsletter%20%232%20FINAL.jpg?raw=1",
+    //         "https://www.dropbox.com/s/z64onf30rva2pe3/Fall%20Newsletter%20%233%20FINAL.jpg?raw=1",
+    //         "https://www.dropbox.com/s/j6km67ibdtcocnj/Fall%20Newsletter%20%234%20final.jpg?raw=1",
+    //         "https://www.dropbox.com/s/o029i27cdmhrpue/Fall%20Newsletter%20%235%20finall.jpg?raw=1",
+    //         "https://www.dropbox.com/s/nu1b6gq9bdb0ah6/Fall%20Newsletter%20%236%20Final.jpg?raw=1",
+    //         "https://www.dropbox.com/s/4sfmfnvhkn5f752/Fall%20Newsletter%20%237%20FINAL.jpg?raw=1",
+    //         "https://www.dropbox.com/s/igaxitfhha56rga/Fall%20Newsletter%20%238%20final.jpg?raw=1",
+    //         "https://www.dropbox.com/s/f67a22ncdng7uh3/Fall%20Newsletter%20%239%20final.jpg?raw=1",
+    //         "https://www.dropbox.com/s/9jyltuk1hh0utxu/Fall%20Newsletter%20%2310%20FINAL.jpg?raw=1",
+    //         "https://www.dropbox.com/s/kbhdaidne1ycuf7/Fall%20Newsletter%20%2311%20FINAL.jpg?raw=1",
+    //         "https://www.dropbox.com/s/qch7dppmh49ts7k/Fall%20Newsletter%20%2312%20FINAL.jpg?raw=1",
+    //         "https://www.dropbox.com/s/4bkdc4cm750t9bt/Fall%20Newsletter%20%2313%20FINAL.jpg?raw=1",
+    //         "https://www.dropbox.com/s/zbx27oa422y2se4/Freshman%20Newsletter%20final.jpg?raw=1",
+    //         "https://www.dropbox.com/s/vpj6c9h43hygpqz/Winter%20Newsletter%20%231.jpg?raw=1",
+    //         "https://www.dropbox.com/s/u6mma90n3iap1xg/Winter%20Newsletter%20%232.jpg?raw=1"];
 
     var time = new Date().getTime();
     var newsletterEdition;
