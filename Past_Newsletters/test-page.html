@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="pastNewsletters.js"></script>
+    </head>
+
+    <style>
+        #selectDiv {
+            float: top;
+            margin-bottom: 100px;
+        }
+
+        #loadingAnim {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #newsletterDiv {
+            width: 800px;
+            padding-right: 90px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #facebookComments {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #yearSelect_div {
+            float: left;
+            width: 150px;
+        }
+
+        #yearSelect {
+            background-color: #C7C7C7;
+            text-indent: 20px;
+        }
+
+        #newsletterSelect_div {
+            float: right;
+            width: 500px;
+        }
+
+        .newsletterSelect {
+            display: block;
+            padding: 0 0 0 20px;
+        }
+
+        #newsletter {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
+    <body>
+        <div id="selectDiv">
+            <div id="yearSelect_div">
+                <select id="yearSelect">
+                    <option value="2016-2017"><strong>2016-2017</strong></option>
+                    <option value="2015-2016"><strong>2015-2016</strong></option>
+                    <option value="2014-2015"><strong>2014-2015</strong></option>
+                    <option value="2013-2014"><strong>2013-2014</strong></option>
+                </select>
+            </div>
+            <div id="newsletterSelect_div">
+                <div id="2013-2014_selectDiv">
+                    <select id="2013-2014_select" class="newsletterSelect">
+                        <option value="default">Select an edition</option>
+                        <option value="2013-2014_n1">Newsletter #1 - 09/11/2013</option>
+                        <option value="2013-2014_n2">Newsletter #2 - 09/17/2013</option>
+                        <option value="2013-2014_n3">Newsletter #3 - 09/24/2013</option>
+                        <option value="2013-2014_n4">Newsletter #4 - 10/01/2013</option>
+                        <option value="2013-2014_n5">Newsletter #5 - 10/08/2013</option>
+                        <option value="2013-2014_n6">Newsletter #6 - 10/15/2013</option>
+                        <option value="2013-2014_n7">Newsletter #7 - 10/22/2013</option>
+                        <option value="2013-2014_n8">Newsletter #8 - 10/29/2013</option>
+                        <option value="2013-2014_n9">Newsletter #9 - 11/05/2013</option>
+                        <option value="2013-2014_n10">Newsletter #10 - 11/12/2013</option>
+                        <option value="2013-2014_n11">Newsletter #11 - 11/19/2013</option>
+                        <option value="2013-2014_n12">Newsletter #12 - 11/26/2013</option>
+                        <option value="2013-2014_n13">Newsletter #13 - 12/03/2013</option>
+                        <option value="2013-2014_n14">Newsletter #14 - 12/10/2013</option>
+                        <option value="2013-2014_n15">Newsletter #15 - 01/13/2014</option>
+                        <option value="2013-2014_n16">Newsletter #16 - 01/20/2014</option>
+                        <option value="2013-2014_n17">Newsletter #17 - 01/27/2014</option>
+                        <option value="2013-2014_n18">Newsletter #18 - 02/03/2014</option>
+                        <option value="2013-2014_n19">Newsletter #19 - 02/10/2014</option>
+                        <option value="2013-2014_n20">Newsletter #20 - 02/18/2014</option>
+                        <option value="2013-2014_n21">Newsletter #21 - 02/24/2014</option>
+                        <option value="2013-2014_n22">Newsletter #22 - 03/04/2014</option>
+                        <option value="2013-2014_n23">Newsletter #23 - 03/11/2014</option>
+                        <option value="2013-2014_n24">Newsletter #24 - 03/19/2014</option>
+                        <option value="2013-2014_n25">Newsletter #25 - 03/25/2014</option>
+                        <option value="2013-2014_n26">Newsletter #26 - 04/14/2014</option>
+                        <option value="2013-2014_n27">Newsletter #27 - 05/02/2014 (Thao's Debut Edition!)</option>
+                    </select>
+                </div>
+                <div id="2014-2015_selectDiv">
+                    <select id="2014-2015_select" class="newsletterSelect">
+                        <option value="default">Select an edition</option>
+                        <option value="2014-2015_n1">Newsletter #1 - 09/01/2014</option>
+                        <option value="2014-2015_n2">Newsletter #2 - 09/09/2014</option>
+                        <option value="2014-2015_n3">Newsletter #3 - 09/16/2014</option>
+                        <option value="2014-2015_n4">Newsletter #4 - 09/23/2014</option>
+                        <option value="2014-2015_n5">Newsletter #5 - 09/30/2014</option>
+                        <option value="2014-2015_n6">Newsletter #6 - 10/07/2014</option>
+                        <option value="2014-2015_n7">Newsletter #7 - 10/14/2014</option>
+                        <option value="2014-2015_n8">Newsletter #8 - 10/21/2014</option>
+                        <option value="2014-2015_n9">Newsletter #9 - 10/28/2014</option>
+                        <option value="2014-2015_n10">Newsletter #10 - 11/04/2014</option>
+                        <option value="2014-2015_n11">Newsletter #11 - 11/11/2014</option>
+                        <option value="2014-2015_n12">Newsletter #12 - 11/18/2014</option>
+                        <option value="2014-2015_n13">Newsletter #13 - 11/25/2014</option>
+                        <option value="2014-2015_n14">Newsletter #14 - 12/02/2014</option>
+                        <option value="2014-2015_n15">Newsletter #15 - 12/09/2014</option>
+                        <option value="2014-2015_n16">Newsletter #16 - 01/13/2015</option>
+                        <option value="2014-2015_n17">Newsletter #17 - 01/20/2015</option>
+                        <option value="2014-2015_n18">Newsletter #18 - 01/27/2015</option>
+                        <option value="2014-2015_n19">Newsletter #19 - 02/10/2015</option>
+                        <option value="2014-2015_n20">Newsletter #20 - 02/17/2015</option>
+                        <option value="2014-2015_n21">Newsletter #21 - 02/24/2015</option>
+                        <option value="2014-2015_n22">Newsletter #22 - 03/03/2015</option>
+                        <option value="2014-2015_n23">Newsletter #23 - 03/10/2015</option>
+                        <option value="2014-2015_n24">Newsletter #24 - 03/17/2015</option>
+                        <option value="2014-2015_n25">Newsletter #25 - 03/25/2015</option>
+                        <option value="2014-2015_n26">Newsletter #26 - 03/31/2015</option>
+                        <option value="2014-2015_n27">Newsletter #27 - 04/08/2015</option>
+                        <option value="2014-2015_n28">Newsletter #28 - 04/15/2015</option>
+                        <option value="2014-2015_n29">Newsletter #29 - 04/21/2015</option>
+                        <option value="2014-2015_n30">Newsletter #30 - 05/03/2015 (Jackie's Debut Edition!)</option>
+                    </select>
+                </div>
+                <div id="2015-2016_selectDiv">
+                    <select id="2015-2016_select" class="newsletterSelect">
+                        <option value="default">Select an edition</option>
+                        <option value="2015-2016_n1">Newsletter #1 - 09/08/2015</option>
+                        <option value="2015-2016_n2">Newsletter #2 - 09/16/2015</option>
+                        <option value="2015-2016_n3">Newsletter #3 - 09/23/2015</option>
+                        <option value="2015-2016_n4">Newsletter #4 - 09/30/2015</option>
+                        <option value="2015-2016_n5">Newsletter #5 - 10/07/2015</option>
+                        <option value="2015-2016_n6">Newsletter #6 - 10/14/2015</option>
+                        <option value="2015-2016_n7">Newsletter #7 - 10/21/2015</option>
+                        <option value="2015-2016_n8">Newsletter #8 - 10/28/2015</option>
+                        <option value="2015-2016_n9">Newsletter #9 - 11/05/2015</option>
+                        <option value="2015-2016_n10">Newsletter #10 - 11/12/2015</option>
+                        <option value="2015-2016_n11">Newsletter #11 - 11/18/2015</option>
+                        <option value="2015-2016_n12">Newsletter #12 - 11/26/2015</option>
+                        <option value="2015-2016_n13">Newsletter #13 - 12/05/2015</option>
+                        <option value="2015-2016_n14">Newsletter #14 - 12/10/2015</option>
+                        <option value="2015-2016_n15">Newsletter #15 - 01/13/2016</option>
+                        <option value="2015-2016_n16">Newsletter #16 - 01/19/2016</option>
+                    </select>
+                </div>
+                <div id="2016-2017_selectDiv">
+                </div>
+            </div>
+        </div>
+        <div id="loadingDiv">
+            <img id="loadingAnim" src="http://www.vsa.neu.edu/wp-content/uploads/2015/05/327.gif" alt="Loading Animation" height="64" width="64">
+        </div>
+        <div id="newsletterDiv"></div>
+    </body>
+
+</html>
