@@ -1,3 +1,5 @@
+'use strict';
+
 /* array of the links to the newsletter images hosted on Dropbox - links were shortened using Google url shortener */
 var newsletterLinks_2013_2014 = [
         "http://goo.gl/y2F7LZ",
@@ -96,7 +98,148 @@ var newsletterLinks_2015_2016 = [
 
 var newsletterLinks_2016_2017 = [];
 
+var newsletterNames_2013_2014 = [];
+var newsletterNames_2014_2015 = [];
+var newsletterNames_2015_2016 = [];
+var newsletterNames_2016_2017 = [];
+
+var newsletterSelect = function() {
+    $('#loadingAnim').css('display', 'block');
+
+    // shows the loading animation as the newsletter loads
+    $('#loadingAnim').show();
+
+    removeNewsletter(displayNewsletter);
+
+    // when the newsletter finishes loading, hide the loading animation
+    $('#newsletter').on('load', function(){
+        $('#loadingAnim').hide();
+    });
+
+}  // end of newsletterSelect function
+
+/**
+ *  Adds the names of all the newsletters to each array of newsletter names.
+ */
+var populateNewsletterNames = function() {
+    var i;
+
+    /* assigns newsletter name values to the empty array */
+    for (i = 0; i < newsletterLinks_2013_2014.length; i++) {  // array should be of length 26 because there were 26 newsletters
+        newsletterNames_2013_2014[i] = "2013-2014_n" + String(i + 1);
+    }
+
+    for (i = 0; i < newsletterLinks_2014_2015.length; i++) {  // array should be of length 30 because there were 30 newsletters
+        newsletterNames_2014_2015[i] = "2014-2015_n" + String(i + 1);  // assigns to the index of [i-1] because array indexes start count at 0
+    }
+
+    for (i = 0; i < newsletterLinks_2015_2016.length; i++) {  // array should be of length 27 because there were 27 newsletters
+        newsletterNames_2015_2016[i] = "2015-2016_n" + String(i + 1);  // assigns to the index of [i-1] because array indexes start count at 0
+    }
+
+    for (i = 0; i < newsletterLinks_2016_2017.length; i++) {
+        newsletterNames_2016_2017[i] = "2016-2017_n" + String(i + 1);
+    }
+
+};  // end of populateNewsletterNames function
+
+
+var displayNewsletter = function() {
+    var year = document.getElementById('yearSelect').value;  // String - year that was selected
+
+    var time = new Date().getTime();
+    var newsletterEdition;
+    var newsletterIndex;
+    var newsletterImage;
+    var listUse;
+
+    if (year === "2013-2014") {
+        newsletterEdition = $('#2013-2014_select').val();  // String - edition of newsletter selected
+
+        if (newsletterEdition === "Newsletter #27 - 05/02/2014 (Thao's Debut Edition!)") {
+            newsletterIndex = 26;
+        } else {
+            newsletterIndex = newsletterNames_2013_2014.indexOf(newsletterEdition);  // int - array index of newsletter edition
+        }
+
+        newsletterImage = document.createElement('iframe');  // creates HTML iframe element and assigns to newsletterImage variable
+
+        newsletterImage.setAttribute('id', "newsletter");  // sets the id of the iframe element
+        newsletterImage.src = newsletterLinks_2013_2014[newsletterIndex];  // sets the source of image
+        newsletterImage.setAttribute('width', "800");
+        newsletterImage.setAttribute('height', "2000");
+        newsletterImage.setAttribute('display', "block");
+
+        document.getElementById('newsletterDiv').appendChild(newsletterImage);
+
+    } else if (year === "2014-2015") {
+        newsletterEdition = document.getElementById('2014-2015_select').value;  // String - edition of newsletter selected
+        newsletterIndex = newsletterNames_2014_2015.indexOf(newsletterEdition);  // int - array index of newsletter edition
+        newsletterImage = document.createElement('img');  // creates HTML image element and assigns to newsletterImage variable
+
+        newsletterImage.setAttribute('id', "newsletter");  // sets the id of the image element
+        newsletterImage.src = newsletterLinks_2014_2015[newsletterIndex] + "?" + time;  // sets the source of image
+        newsletterImage.setAttribute('alt', newsletterEdition);  // sets the 'alt' attribute of the image
+
+        document.getElementById('newsletterDiv').appendChild(newsletterImage);
+
+    } else if (year === "2015-2016") {
+        newsletterEdition = document.getElementById('2015-2016_select').value;  // String - edition of newsletter selected
+        newsletterIndex = newsletterNames_2015_2016.indexOf(newsletterEdition);  // int - array index of newsletter edition
+        newsletterImage = document.createElement('img');  // creates HTML image element and assigns to newsletterImage variable
+
+        newsletterImage.setAttribute('id', "newsletter");  // sets the id of the image element
+        newsletterImage.src = newsletterLinks_2015_2016[newsletterIndex] + "&" + time;  // sets the source of image
+        newsletterImage.setAttribute('alt', newsletterEdition);  // sets the 'alt' attribute of the image
+
+        document.getElementById('newsletterDiv').appendChild(newsletterImage);
+
+    } else if (year === "2016-2017") {
+
+    } else {
+        throw new Error("displayNewsletter(): Invalid year selected. How? I don't know.");  // yeah idk how this would happen, but you never know
+
+    }  // end of if-statement for year selected
+
+};  // end of displayNewsletter function
+
+/**
+ * Removes the newsletter that is currently displayed.
+ *
+ * @param callback - the function to call after removeNewsletter is done
+ */
+var removeNewsletter = function(callback) {
+    var newsletterElement = document.getElementById('newsletter');
+    var parentDiv = document.getElementById('newsletterDiv');
+
+    /* checks if the image element of newsletter exists and removes the element if it does */
+    if (newsletterElement == null) {
+        callback();
+
+        return;
+    } else {
+        if (newsletterElement.nodeName === "IMG") {
+            $('newsletterElement img').src = "";
+            $('#newsletterElement img').removeAttr('src');
+            $('#newsletterElement').empty();
+        } else {
+            $('#newsletterElement iframe').src = "";
+            $('#newsletterElement iframe').removeAttr('src');
+            $('#newsletterElement').empty();
+        }
+
+        parentDiv.removeChild(newsletterElement);
+    }
+
+    callback();
+
+};  // end of removeNewsletter function
+
 $(document).ready(function() {
+    // calls the populateNewsletterNames function to add the newsletter names to
+    // the array of each year
+    populateNewsletterNames();
+
     // hides the loading animation and non-default select elements
     $('#loadingAnim').hide();
     $('#2013-2014_select').hide();
@@ -152,114 +295,3 @@ $(document).ready(function() {
         }
     });
 });
-
-function newsletterSelect() {
-    document.getElementById('loadingAnim').style.display = "block";
-
-    // shows the loading animation as the newsletter loads
-    $('#loadingAnim').show();
-
-    removeNewsletter();
-    displayNewsletter();
-
-    // when the newsletter finishes loading, hide the loading animation
-    $('#newsletter').on('load', function(){
-        $('#loadingAnim').hide();
-    });
-
-}  // end of newsletterSelect function
-
-function displayNewsletter() {
-    var year = document.getElementById('yearSelect').value;  // String - year that was selected
-
-    var newsletterNames_2013_2014 = [];
-    var newsletterNames_2014_2015 = [];
-    var newsletterNames_2015_2016 = [];
-    var newsletterNames_2016_2017 = [];
-
-    var i;
-
-    /* assigns newsletter name values to the empty array */
-    for(i = 1; i < 27; i++) {  // array should be of length 26 because there were 26 newsletters
-        newsletterNames_2013_2014[i-1] = "2013-2014_n" + i;
-    }
-
-    for (i = 1; i < 31; i++) {  // array should be of length 30 because there were 30 newsletters
-        newsletterNames_2014_2015[i-1] = "2014-2015_n" + i;  // assigns to the index of [i-1] because array indexes start count at 0
-    }
-
-    for (i = 1; i < 27; i++) {  // array should be of length 16 because there were 16 newsletters
-        newsletterNames_2015_2016[i-1] = "2015-2016_n" + i;  // assigns to the index of [i-1] because array indexes start count at 0
-    }
-
-    var time = new Date().getTime();
-    var newsletterEdition;
-    var newsletterIndex;
-    var newsletterImage;
-    var listUse;
-
-    if (year === "2013-2014") {
-        newsletterEdition = document.getElementById('2013-2014_select').value;  // String - edition of newsletter selected
-
-        if (newsletterEdition === "Newsletter #27 - 05/02/2014 (Thao's Debut Edition!)") {
-            newsletterIndex = 26;
-        } else {
-            newsletterIndex = newsletterNames_2013_2014.indexOf(newsletterEdition);  // int - array index of newsletter edition
-        }
-
-        newsletterImage = document.createElement('iframe');  // creates HTML iframe element and assigns to newsletterImage variable
-        newsletterImage.setAttribute('id', "newsletter");  // sets the id of the iframe element
-        newsletterImage.src = newsletterLinks_2013_2014[newsletterIndex];  // sets the source of image
-        newsletterImage.setAttribute('width', "800");
-        newsletterImage.setAttribute('height', "2000");
-        newsletterImage.setAttribute('display', "block");
-        document.getElementById('newsletterDiv').appendChild(newsletterImage);
-
-    } else if (year === "2014-2015") {
-        newsletterEdition = document.getElementById('2014-2015_select').value;  // String - edition of newsletter selected
-        newsletterIndex = newsletterNames_2014_2015.indexOf(newsletterEdition);  // int - array index of newsletter edition
-        newsletterImage = document.createElement('img');  // creates HTML image element and assigns to newsletterImage variable
-        newsletterImage.setAttribute('id', "newsletter");  // sets the id of the image element
-        newsletterImage.src = newsletterLinks_2014_2015[newsletterIndex] + "?" + time;  // sets the source of image
-        newsletterImage.setAttribute('alt', newsletterEdition);  // sets the 'alt' attribute of the image
-        document.getElementById('newsletterDiv').appendChild(newsletterImage);
-
-    } else if (year === "2015-2016") {
-        newsletterEdition = document.getElementById('2015-2016_select').value;  // String - edition of newsletter selected
-        newsletterIndex = newsletterNames_2015_2016.indexOf(newsletterEdition);  // int - array index of newsletter edition
-        newsletterImage = document.createElement('img');  // creates HTML image element and assigns to newsletterImage variable
-        newsletterImage.setAttribute('id', "newsletter");  // sets the id of the image element
-        newsletterImage.src = newsletterLinks_2015_2016[newsletterIndex] + "&" + time;  // sets the source of image
-        newsletterImage.setAttribute('alt', newsletterEdition);  // sets the 'alt' attribute of the image
-        document.getElementById('newsletterDiv').appendChild(newsletterImage);
-
-    } else if (year === "2016-2017") {
-
-    } else {
-        throw new Error("displayNewsletter(): Invalid year selected. How? I don't know.");  // yeah idk how this would happen, but you never know
-    }  // end of if-statement for year selected
-
-}  // end of displayNewsletter function
-
-function removeNewsletter() {
-    var newsletterElement = document.getElementById('newsletter');
-    var parentDiv = document.getElementById('newsletterDiv');
-
-    /* checks if the image element of newsletter exists and removes the element if it does */
-    if (newsletterElement == null) {
-        return;
-    } else {
-        if (newsletterElement.nodeName === "IMG") {
-            $('newsletterElement img').src = "";
-            $('#newsletterElement img').removeAttr('src');
-            $('#newsletterElement').empty();
-        } else {
-            $('#newsletterElement iframe').src = "";
-            $('#newsletterElement iframe').removeAttr('src');
-            $('#newsletterElement').empty();
-        }
-
-        parentDiv.removeChild(newsletterElement);
-    }
-
-}  // end of removeNewsletter function
