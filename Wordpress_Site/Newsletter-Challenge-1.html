@@ -1,0 +1,157 @@
+<style>
+    form {
+        width: 800px;
+        font-family: Ariel, Helvetica, sans-serif;
+    }
+
+    li {
+        padding-bottom: 20px;
+    }
+
+    .answerInputs {
+        width: 300px;
+        float: right;
+        border: 1px solid;
+        color: black;
+    }
+
+    #passphraseP {
+        margin-top: 50px;
+    }
+
+    #passphrase {
+        width: 200px;
+        margin-left: 50px;
+    }
+</style>
+<form id="challengeForm">
+    <p style="font-size:16px"><strong>READ ALL THE INSTRUCTIONS CAREFULLY!</strong></p>
+    <p>Welcome Map Diem players. Congratulations for "discovering" the first newsletter hidden challenge!</p>
+    <p>Don't worry, I will not be helping my team because that just wouldn't be fair. However, I think they're fully capable of solving all the questions with ease :P</p>
+    <p>I'll start you guys off with an easy challenge since it's the first one.</p>
+    <p>I would strongly recommend working with your team to solve each question. Even if it looks easy, you should always have others double-checking. And it doesn't look right if only one person is doing everything. Try to get everyone involved!</p>
+    <p style="margin-top:30px"><strong>This challenge will test how well you know your current e-board.</strong></p>
+    <ol>
+        <li>This e-boarder is the one who creates the newsletter every week. <input type="text" id="answer1" class="answerInputs"></li>
+        <li>Where is Annvie from? <input type="text" id="answer2" class="answerInputs"></li>
+        <li>Name one of Anthony's hobbies. <input type="text" id="answer3" class="answerInputs"></li>
+        <li>What is Dinh's major? <input type="text" id="answer4" class="answerInputs"></li>
+        <li>Who are the two Co-Performance Coordinators? <input type="text" id="answer5" class="answerInputs"></li>
+        <li>How tall is Kimberly? <strong>(Use format: <#FEET> ft. <#INCHES> in.)</strong> <input type="text" id="answer6" class="answerInputs"></li>
+        <li>He's actually a K-pop star. <input type="text" id="answer7" class="answerInputs"></li>
+        <li>What's <strong>MY</strong> email? <input type="text" id="answer8" class="answerInputs"></li>
+    </ol>
+    <p>When you have completed every question, enter your team's secret passphrase and click the 'Submit' button to send me your answers.</p>
+    <p><strong>EACH TEAM ONLY GETS 1 SUBMISSION.</strong></p>
+    <p>
+        <strong>Once <i>anybody</i> on your team enters your team's secret passphrase and hits 'Submit', that is it. Any additional submissions will not be counted.</strong>
+        <i style="font-size:10px">wow so strict</i>
+    </p>
+    <p>Buuuut for this first one, I haven't given you guys passphrases yet, so just enter your team name. Please don't enter another team's name in hopes of sabotaging them. We're all friends here!</p>
+    <p id="passphraseP"><strong>Your team name:</strong><input type="text" id="passphrase" class="answerInputs"></p>
+</form>
+<p id="oneMoreThing">Enter your answer for Question 8 here. This is where your answers will be emailed to. You better hope you got the right answer LOL.</p>
+<input type="text" id="emailAnswer">
+<input type="submit" id="submitButton" onclick="checkInputs()">
+<h3 style="margin-top: 100px">Leave a comment!</h3>
+<div id="facebookComments" class="fb-comments" data-href="http://www.vsa.neu.edu/newsletter-challenge-1/" data-width="718.5" data-numposts="10" data-colorscheme="light" data-order-by="time"></div>
+<script>
+    /*
+     * I don't really care if you guys read the source code. You won't find anything that would
+     * help you. I'll even provide comments for you (and me). I have to say, I'm not the best
+     * programmer. So if you find anything in the code that could cause problems, let me know
+     * and if I agree that it's serious enough, maybe your team will get bonus points. Actually,
+     * idk. I'll have to check with Kim about that.....
+     * Also, it's really frustrating using WordPress. When I copied the code onto it, I had to make
+     * so many changes to accommodate for all it's default styling. Ugh so annoying. I think I kinda
+     * messed up some stuff on the page, but whatever. Last minute ftw!
+     */
+    var pageBoxThing = document.getElementById('post-485');
+    pageBoxThing.style.padding = "80px 50px";
+    document.getElementById('challengeForm').style.fontSize = "14px";
+    var answerInputs = document.getElementsByClassName('answerInputs');
+    var i;
+    for (i = 0; i < answerInputs.length; i++) {
+        answerInputs[i].style.width = "250px";
+        answerInputs[i].style.height = "30px";
+        answerInputs[i].style.minHeight = "30px";
+        answerInputs[i].style.border = "1px solid";
+        answerInputs[i].style.color = "#555";
+    }
+    var emailAnswer = document.getElementById('emailAnswer');
+    document.getElementById('oneMoreThing').style.marginTop = "30px";
+    emailAnswer.style.width = "100%";
+    emailAnswer.style.height = "30px";
+    emailAnswer.style.minHeight = "30px";
+    emailAnswer.style.border = "1px solid";
+    emailAnswer.style.color = "#555";
+    document.getElementById('submitButton').style.marginTop = "30px";
+
+    /*
+     * checkInputs()
+     * This function checks if every input box is filled out. Basically, as long as any of
+     * the inputs contain a single character (whitespace included), it will pass.
+     */
+    function checkInputs() {
+        var answer_1 = document.getElementById('answer1').value;
+        var answer_2 = document.getElementById('answer2').value;
+        var answer_3 = document.getElementById('answer3').value;
+        var answer_4 = document.getElementById('answer4').value;
+        var answer_5 = document.getElementById('answer5').value;
+        var answer_6 = document.getElementById('answer6').value;
+        var answer_7 = document.getElementById('answer7').value;
+        var answer_8 = document.getElementById('answer8').value;
+        var passphraseValue = document.getElementById('passphrase').value;
+        var emailEntered = document.getElementById('emailAnswer').value;
+        var submitButton = document.getElementById('submitButton');
+        if (answer_1 == "" || answer_2 == "" || answer_3 == "" || answer_4 == "" || answer_5 == "" ||
+            answer_6 == "" || answer_7 == "" || answer_8 == "" || passphraseValue == "" || emailEntered == "") {
+            alert("You must enter an input in each field.");
+        } else {
+            var passphraseLower = passphraseValue.toLowerCase(); // converts passphrase to lower case letters
+            if (passphraseLower == "phoenix" || passphraseLower == "dragon" || passphraseLower == "tiger" ||
+                passphraseLower == "turtle") {
+                var confirmSubmit = confirm("Are you sure you would like to submit your answers?");
+                if (confirmSubmit) {
+                    formatMail();
+                }
+            } else {
+                /* Could I have checked for that? Maybe. */
+                alert("Your entered an incorrect team name. Make sure it's in the singular form and no spaces!");
+            }
+        }
+    }
+    
+    /*
+     * formatMail()
+     * This function will format the email containing the answers to be sent to me.
+     */
+    function formatMail() {
+        /* Too lazy to try anything with this */
+        var answer_1 = document.getElementById('answer1').value;
+        var answer_2 = document.getElementById('answer2').value;
+        var answer_3 = document.getElementById('answer3').value;
+        var answer_4 = document.getElementById('answer4').value;
+        var answer_5 = document.getElementById('answer5').value;
+        var answer_6 = document.getElementById('answer6').value;
+        var answer_7 = document.getElementById('answer7').value;
+        var answer_8 = document.getElementById('answer8').value;
+        var passphraseValue = document.getElementById('passphrase').value;
+        var emailEntered = document.getElementById('emailAnswer').value;
+        var message = "{" + passphraseValue + ":" + emailEntered + "}" + " Answer 1 = " + answer_1 + " Answer 2 = " + answer_2 +
+            " Answer 3 = " + answer_3 + " Answer 4 = " + answer_4 + " Answer 5 = " + answer_5 + " Answer 6 = " + answer_6 +
+            " Answer 7 = " + answer_7 + " Answer 8 = " + answer_8;
+        /* sends formatted message to a PHP function that emails the answers to me */
+        $.ajax({
+            type: "POST",
+            url: "/wp-content/themes/flat/functions.php",
+            data: {
+                message: message
+            },
+            complete: function(data) {
+                alert("Answers have been submitted to " + emailEntered + "! Good luck.\n\nBut really, that challenge was super easy. I hope you all figured out that most of the answers were on the website...");
+            }
+        });
+        console.log(message);
+    }
+</script>

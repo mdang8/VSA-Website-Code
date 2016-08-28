@@ -1,0 +1,50 @@
+<h2 style="text-align:center; margin-bottom:20px">Part 1/2</h2>
+<img id="image1" src="http://www.vsa.neu.edu/wp-content/uploads/2015/10/imageChallenge1.jpg" width="900px" height="600px">
+<p id="question" style="text-align:center; margin-top:40px; margin-bottom:10px">What is missing?</p>
+<a href="/challenge3_hint.txt" style="text-align:center; margin-bottom:30px">Hint</a>
+<input type="text" id="answerInput">
+<strong>Team Name:</strong><input type="text" id="teamNameInput">
+<input type="submit" id="submitButton" onclick="checkInputs()">
+<p style="margin-top:30px">Link to next question: <a href="http://www.vsa.neu.edu/whatismissing-2/">Question #2</a></p>
+<p id="question2_pw">Password:</p>
+<script>
+    var i;
+    var answerInput = document.getElementById('answerInput');
+    var teamNameInput = document.getElementById('teamNameInput');
+    answerInput.style.border = "1px solid #555";
+    teamNameInput.style.border = "1px solid #555";
+    teamNameInput.style.width = "250px"
+
+    function checkInputs() {
+        var answer = answerInput.value;
+        var teamName = teamNameInput.value;
+        if (answer == "") {
+            alert("You must enter an input for your answer!");
+        } else {
+            var teamNameLower = teamName.toLowerCase();
+            if (teamNameLower == "phoenix" || teamNameLower == "dragon" || teamNameLower == "tiger" || teamNameLower == "turtle") {
+                var confirmSubmit = confirm("Are you sure you would like to submit your answers?");
+                if (confirmSubmit) {
+                    submitAnswer();
+                }
+            } else {
+                /* Could I have checked for that? Maybe. */
+                alert("Your entered an incorrect team name. Make sure it's in the singular form and no spaces!");
+            }
+        }
+    }
+
+    function submitAnswer() {
+        var answer = answerInput.value;
+        var teamName = teamNameInput.value;
+        var message = teamName + ": " + answer;
+        var oReq = new XMLHttpRequest();
+        oReq.onload = function() {
+            document.getElementById('question2_pw').innerHTML = "Password: " + this.responseText;
+            document.getElementById('question2_pw').style.fontWeight = "bold";
+            alert("See below the link to the next question for the password!!!");
+        }
+        oReq.open("get", "/wp-content/themes/flat/functions.php?answerChallenge3=" + message, true);
+        oReq.send();
+    }
+</script>
